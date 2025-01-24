@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/FRONTENDS/CSS/styles.css">
+    <style>
+  @font-face {font-family: sd; src: url(/FRONTENDS/Slot_Machine/fonts/eto.ttf);
+}
+@font-face {font-family: clv; src:url(/FRONTENDS/Slot_Machine/fonts/CaviarDreams\.ttf);}
+
+  
+        main{
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            
+            background-color: lightgrey;
+            margin: 10px;
+            padding-bottom: 20px;
+        }
+        main > section{ 
+            width: 30%;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-content button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #45a049;
+        }
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+align-items: center;
+  gap: 50px;
+}
+
+.card {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.input {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  z-index: 10;
+  box-shadow: 1px 1px 10px #aaaaaa,
+              -1px -1px 10px #ffffff;
+}
+
+.input + .check::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d0d0d0;
+  border-radius: 50%;
+  background-color: #E8E8E8;
+}
+
+.input:checked + .check::after {
+  content: '';
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255,0,0,0.7);
+  border-radius: 50%;
+}
+
+.input[value="standard"]:checked + .check::after {
+  background-color: rgba(255,165,0,0.7);
+}
+
+.input[value="premium"]:checked + .check::after {
+  background-color: rgba(0,128,0,0.7);
+}
+
+.input[value="basic"]:checked {
+  border: 1.5px solid rgba(255,0,0,0.7);
+}
+
+.input[value="standard"]:checked {
+  border: 1.5px solid rgba(255,165,0,0.7);
+}
+
+.input[value="premium"]:checked {
+  border: 1.5px solid rgba(0,128,0,0.7);
+}
+
+.label {
+  color: #323232;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.label .title {
+  margin: 15px 0 0 15px;
+  font-weight: 900;
+  font-size: 15px;
+
+}
+
+.label .price {
+  margin: 20px 0 0 15px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.label .span {
+  font-family: sd;
+  color: rgb(75, 20, 20);
+
+  font-size: 20px;
+  
+}
+
+    </style>
+</head>
+<body>
+
+    <center><nav style="background-color: lightblue; ">
+        <ul style="margin-inline: 20px;">
+            <li><a href="#home">Home</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="#" onclick="openModal(); return false;">Top Up</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><p>Your current balance: {{ user.money }} money</p></li>
+        </ul>
+    </nav></center>
+    <center><header class="">
+        <h1>Dashboard</h1>
+    </header></center>
+
+    <main class="">
+        <section id="first_game">
+            <h2>SLOT MACHINE</h2>
+            <p>For low risk reward players!</p>
+            
+            <a href="{{ url_for('slot_machine') }}" class="btn">Play Slot Machine</a>
+        </section>
+        <section id="second_game">
+            <h2>Blackjack</h2>
+            <p>Mix of luck and skill.</p>
+        </section>
+        <section id="third_game">
+            <h2>Roulette</h2>
+            <p>Spin it to win it.</p>
+        </section>
+    </main>
+
+    <!-- Add Modal -->
+    <div id="topupModal" class="modal">
+        <div class="modal-content">
+
+<div class="wrapper">
+    <div class="card">
+      <input class="input" type="radio" name="card" value="basic">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">BASIC</div>
+        <div class="price">
+          
+            <span class="span"> M </span>25
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="standard">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">STANDARD</div>
+        <div class="price">
+            <span class="span"> M </span>50
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="premium">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">PREMIUM</div>
+        <div class="price">
+            <span class="span"> M </span>100
+        </div>
+      </label>
+    </div>
+  </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDisplay(newBalance) {
+            document.querySelector('nav li:last-child p').textContent = 'Your current balance: ' + newBalance + ' money';
+        }
+
+        setInterval(() => {
+            fetch('/update_balance', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: 100 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateDisplay(data.new_balance);
+                }
+            })
+            .catch(console.error);
+        }, 600000); // Every 10 minutes
+
+        function openModal() {
+            document.getElementById('topupModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('topupModal').style.display = 'none';
+        }
+
+        function topUp(amount) {
+            fetch('/update_balance', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: amount })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateDisplay(data.new_balance);
+                    closeModal();
+                }
+            })
+            .catch(console.error);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('topupModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

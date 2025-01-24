@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/slider-style.css">
+    <link rel="stylesheet" href="./css/button2.css">
+    <link rel="icon" type="image/png" sizes="180x180" href="goldbar.ico">
+</head>
+<body>
+    <div class="navbar-color">  
+        <nav id="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></lis>
+                <li>
+                    <a href="#" onclick="openModal(); return false;">
+                        <button class="Btn">
+                            <div class="sign">+</div>
+                            <div class="text">Top-UP</div>
+                        </button>
+                    </a>
+                </li>
+                <li><a href="#profile" onclick="openSimpleModal()">Leaderboard  </a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="navbar-color-2">
+       <div class="coin">
+            <div class="comment-react">
+                <button>
+                <img src="./coin.png">
+                </button>
+                <span>{{ user.money }}</span>
+            </div>
+       </div>
+    </div>
+
+    <div id="games">
+        <h3> OUR GAMES</h3>
+        <section class="slider-container">
+            <div class="slider-images">
+
+                <div class="slider-img">
+                    <img src="Images/1.png" alt="1" draggable="false" />
+                    <h1 class="text-adjust">BlackJack</h1>
+                    <div class="details">
+                        <h2 class="button"><a href="">BlackJack</a></h2>
+                        <p>Beat the dealer's hand!</p>
+                    </div>
+                </div>
+
+                <div class="slider-img">
+                    <img src="Images/3.png" alt="3" draggable="false" />
+                    <h1 class="text-adjust">Roulette</h1>
+                    <div class="details">
+                        <h2 class="button"><a href="#">Roulette</a></h2>
+                        <p>Spin to win big!</p>
+                    </div>
+                </div>
+
+                <div class="slider-img active">
+                    <img src="Images/4.png" alt="4" draggable="false"/>
+                    <h1>Slot</h1>
+                    <div class="details">
+                        <h2 class="button"><a href="{{ url_for('slot_machine') }}">Slot</a></h2>
+                        <p>Match symbols for prizes</p>
+                    </div>
+                </div>
+
+                <div class="slider-img">
+                    <img src="Images/5.png" alt="5" draggable="false"/>
+                    <h1 class="text-adjust_">Color</h1>
+                    <div class="details">
+                        <h2 class="button"><a href="#">Color Game</a></h2>
+                        <p>Guess the color correctly!</p>
+                    </div>
+                </div>
+            </div>  
+        </section>
+    </div>  
+
+    <!-- FOR MODAL TOP-UP -->
+
+    <div id="topupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+<div class="wrapper">
+    <div class="card">
+      <input class="input" type="radio" name="card" value="basic">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">BASIC</div>
+        <div class="price">
+          
+            <span class="span"> M </span>25
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="standard">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">STANDARD</div>
+        <div class="price">
+            <span class="span"> M </span>50
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="premium">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">PREMIUM</div>
+        <div class="price">
+            <span class="span"> M </span>100
+        </div>
+      </label>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:20px;">
+    <button id="confirmBtn" onclick="confirmTopUp()" style="padding:10px 20px;" hidden>
+      Confirm
+    </button>
+  </div>
+        </div>
+    </div>
+
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSimpleModal()">&times;</span>
+            <h2>Top 5 Winners 🏆</h2>
+            <div style="margin-top: 20px;">
+                {% for winner in rank %}
+                <div style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
+                    <span>{{ loop.index }}. {{ winner.username }}</span>
+                    <span>{{ winner.total_winnings }} 💰</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/jQuery.js"></script>
+    
+    <script>
+        function updateDisplay(newBalance) {
+            document.querySelector('nav li:nth-last-child(2) p').textContent = 'Your current balance: ' + newBalance + ' money';
+        }
+
+        function updateWinnings(newWinnings) {
+            document.querySelector('nav li:last-child p').textContent = 'Total Winnings: ' + newWinnings + ' 🏆';
+        }
+
+        // Update both balance and winnings periodically
+        setInterval(() => {
+            fetch('/get_user_stats')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        updateDisplay(data.balance);
+                        updateWinnings(data.total_winnings);
+                    }
+                })
+                .catch(console.error);
+        }, 60000); // Every minute
+
+        function openModal() {
+            document.getElementById('topupModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('topupModal').style.display = 'none';
+        }
+
+        function topUp(amount) {
+            fetch('/update_balance', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    amount: amount,
+                    is_topup: true  // Flag to indicate this is a top-up
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateDisplay(data.new_balance);
+                    closeModal();
+                    alert('Top-up successful!');
+                } else {
+                    alert('Top-up failed.');
+                }
+            })
+            .catch(() => {
+                alert('Error occurred during top-up.');
+            });
+        }
+
+        function confirmTopUp() {
+            const selectedCard = document.querySelector('input[name="card"]:checked');
+            if(!selectedCard) {
+                alert('Please select a top-up option first.');
+                return;
+            }
+            let amount;
+            if(selectedCard.value === 'basic') amount = 25;
+            else if(selectedCard.value === 'standard') amount = 50;
+            else if(selectedCard.value === 'premium') amount = 100;
+            
+            topUp(amount);
+        }
+
+        // Show the confirm button only when a plan is selected
+        document.querySelectorAll('input[name="card"]').forEach((radio) => {
+            radio.addEventListener('change', () => {
+                document.getElementById('confirmBtn').hidden = false;
+            });
+        });
+
+        let lastCheckedValue = null;
+        document.querySelectorAll('input[name="card"]').forEach(radio => {
+            radio.addEventListener('click', function() {
+                if (this.checked && this.value === lastCheckedValue) {
+                    // Deselect if clicked again
+                    this.checked = false;
+                    document.getElementById('confirmBtn').hidden = true;
+                    lastCheckedValue = null;
+                } else {
+                    // Normal select
+                    lastCheckedValue = this.value;
+                    document.getElementById('confirmBtn').hidden = false;
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('topupModal')) {
+                closeModal();
+            }
+            if (event.target == document.getElementById('simpleModal')) {
+                closeSimpleModal();
+            }
+        }
+
+        // Add these functions with your existing script
+        function openSimpleModal() {
+            document.getElementById('simpleModal').style.display = 'block';
+        }
+
+        function closeSimpleModal() {
+            document.getElementById('simpleModal').style.display = 'none';
+        }
+    </script>
+
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+</body>
+</html>
