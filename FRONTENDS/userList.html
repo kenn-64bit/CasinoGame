@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/FRONTENDS/CSS/userList.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><h2>Fortune Frenzy</h2></div>
+        <div>
+          <input type="text" id="searchBar" placeholder="Search..." />
+          <button onclick="searchTable()">Search</button>
+        </div>
+      </div>
+      <div class="layout">
+        <div class="sidebar">
+          <h2 class="navTitle">Admin - User List</h2>
+          <a href="{{ url_for('userList') }}">User List</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+
+        <div class="table-container">
+          <h1 class="user_header">User List</h1>
+          <table id="postsTable">
+            <thead>
+              <tr>
+                <th onclick="sortTable(0)">
+                  Id
+                  <span class="icon-arrow" onclick="sortTable(0)"
+                    >&UpArrow;</span
+                  >
+                </th>
+                <th onclick="sortTable(1)">
+                  Username
+                  <span class="icon-arrow">&UpArrow;</span>
+                </th>
+                <th onclick="sortTable(2)">
+                  Age <span class="icon-arrow">&UpArrow;</span>
+                </th>
+                <th onclick="sortTable(3)">
+                  Money <span class="icon-arrow">&UpArrow;</span>
+                </th>
+                <th onclick="sortTable(4)">
+                  Total Winnings <span class="icon-arrow">&UpArrow;</span>
+                </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.birthdate }}</td>
+                <td>{{ user.money }}</td>
+                <td>{{ user.total_winnings}}</td>
+                <td>
+                  <form
+                    action="{{ url_for('delete_user', id=user.id) }}"
+                    method="POST"
+                    style="display: inline"
+                  >
+                    <button type="submit">Ban</button>
+                  </form>
+                  <button type="button" onclick="openEditModal('{{ user.id }}')">Edit</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+          <input type="hidden" id="edit-user-id" name="id">
+          
+          <label for="edit-username">Username</label>
+          <input type="text" id="edit-username" name="username" required>
+          
+          <label for="edit-password">Password</label>
+          <input type="password" id="edit-password" name="password" required>
+          
+          <label for="edit-birthdate">Birthdate</label>
+          <input type="date" id="edit-birthdate" name="birthdate" required>
+          
+          <button type="submit">Save Changes</button>
+          <div id="edit-error-message" class="error-message"></div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/FRONTENDS/JS/admin.js"></script>
+    <script>
+      // Edit User Modal JavaScript
+      function openEditModal(userId) {
+        console.log("Opening edit modal for user ID:", userId); // Debugging log
+        fetch(`/get_user/${userId}`)
+          .then(response => response.json())
+          .then(data => {
+            if(data.success){
+              document.getElementById('edit-user-id').value = data.user.id;
+              document.getElementById('edit-username').value = data.user.username;
+              document.getElementById('edit-password').value = data.user.password;
+              document.getElementById('edit-birthdate').value = data.user.birthdate;
+              document.getElementById('editUserModal').style.display = 'block';
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+            alert('Failed to fetch user data.');
+          });
+      }
+
+      function closeEditModal() {
+        document.getElementById('editUserModal').style.display = 'none';
+      }
+
+      document.getElementById('editUserForm').addEventListener('submit', function(event){
+        event.preventDefault();
+        const userId = document.getElementById('edit-user-id').value;
+        const username = document.getElementById('edit-username').value.trim();
+        const password = document.getElementById('edit-password').value.trim();
+        const birthdate = document.getElementById('edit-birthdate').value;
+        const errorMessage = document.getElementById('edit-error-message');
+        errorMessage.textContent = '';
+
+        fetch(`/admin/update_user/${userId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, birthdate })
+        })
+        .then(response => response.json().then(data => ({ status: response.status, body: data })))
+        .then(({ status, body }) => {
+          if(status === 200 && body.success){
+            alert('User updated successfully!');
+            closeEditModal();
+            location.reload();
+          } else {
+            errorMessage.textContent = body.message || 'Failed to update user.';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          errorMessage.textContent = 'An unexpected error occurred.';
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+.navbar-color{
+    background: rgba(124, 0, 0, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+/* NAVBAR 2*/
+
+.navbar-logo{
+    width: auto;
+    height: 30px;
+}
+
+.coin{
+    width: 100.5rem;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* NAVBAR 2*/
+
+#navbar{
+    display:flex;
+    height: 3.2rem;
+    padding: 10px;
+    justify-content: space-around;
+    display: flex;
+}
+
+#navbar .nav-links{
+    gap: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+#navbar ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar li{
+    margin: 0;
+}
+
+#navbar a{
+    font-size: 20px;
+    color: gainsboro;
+    text-decoration: none;
+    transition: 0.2s ease-in;
+}
+
+#navbar .logo img{
+    width: auto;
+    height: 25px;
+}

@@ -1,0 +1,247 @@
+body {
+  font-family: "Jersey", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    circle,
+    rgba(62, 0, 0, 1) 43%,
+    rgba(13, 13, 12, 1) 95%
+  );
+  color: white;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/*SIDEDAR, NAVBAR*/
+.navbar {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(
+    circle,
+    rgba(62, 0, 0, 1) 43%,
+    rgba(13, 13, 12, 1) 95%
+  );
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar h2 {
+  color: white;
+  margin: 0;
+}
+
+.navbar input[type="text"] {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  height: 25px;
+  transition: 0.2s;
+}
+
+.navbar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #0d0d0c;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 70px;
+  height: 30px;
+}
+
+.navbar button:hover {
+  background: rgb(62, 0, 0);
+}
+.layout {
+  display: flex;
+  margin-top: 60px; /* Adjust for the fixed navbar */
+  flex: 1;
+}
+
+.sidebar {
+  width: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(62, 0, 0, 1) 43%,
+    rgba(13, 13, 12, 1) 95%
+  );
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.container > .container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px; /* Adjust for the sidebar width */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/*TABLE CSS*/
+.table-container {
+  width: 90%;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+table {
+  width: 90%;
+  border-collapse: collapse;
+  color: white;
+  margin-left: 30px;
+}
+
+tbody td {
+  padding: 10px;
+  border: 1px solid #2b2b2b;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: center;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #7c0000;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #646464;
+}
+
+tbody tr {
+  --delay: 0.1s;
+  transition: 0.5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+tbody tr:hover {
+  background-color: #fff6 !important;
+}
+
+tbody tr td {
+  padding: 1rem;
+  transition: 0.2s ease-in-out;
+}
+/* #0D0D0C - black */
+/*Arrow css*/
+thead th span.icon-arrow {
+  display: inline-block;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: 1.4px solid transparent;
+
+  text-align: center;
+  font-size: 1rem;
+
+  margin-left: 0.5rem;
+  transition: 0.2s ease-in-out;
+}
+
+thead th:hover span.icon-arrow {
+  border: 1.4px solid #0d0d0c;
+}
+
+thead th:hover {
+  color: #0d0d0c;
+}
+
+thead th.active span.icon-arrow {
+  background-color: #0d0d0c;
+  color: #fff;
+}
+
+thead th.asc span.icon-arrow {
+  transform: rotate(180deg);
+}
+
+thead th.active,
+tbody td.active {
+  color: #0d0d0c;
+}
+
+/*Actions CSS*/
+form {
+  margin: 10px 0;
+}
+
+form input {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+form button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.edit{
+  padding: 5px 10px;
+  border: none;
+  background-color: #b19725;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: rgb(62, 0, 0);
+}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="icon" type="image/png" sizes="180x180" href="goldbar.ico" />
+    <link rel="stylesheet" href="/FRONTENDS/dashboard1/css/button2.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #690000;
+        background-image: linear-gradient(
+            30deg,
+            #7c0000 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #7c0000 87.5%,
+            #7c0000
+          ),
+          linear-gradient(
+            150deg,
+            #7c0000 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #7c0000 87.5%,
+            #7c0000
+          ),
+          linear-gradient(
+            30deg,
+            #7c0000 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #7c0000 87.5%,
+            #7c0000
+          ),
+          linear-gradient(
+            150deg,
+            #7c0000 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #7c0000 87.5%,
+            #7c0000
+          ),
+          linear-gradient(
+            60deg,
+            #7c000077 25%,
+            transparent 25.5%,
+            transparent 75%,
+            #7c000077 75%,
+            #7c000077
+          ),
+          linear-gradient(
+            60deg,
+            #7c000077 25%,
+            transparent 25.5%,
+            transparent 75%,
+            #7c000077 75%,
+            #7c000077
+          );
+        background-size: 14px 25px;
+        background-position: 0 0, 0 0, 7px 12px, 7px 12px, 0 0, 7px 12px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+      }
+      .navbar-color {
+        background: rgba(124, 0, 0, 1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        height: 71.1914px;
+      }
+
+      .navbar-color-2 {
+        background: rgb(89, 0, 0);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+      }
+      /* NAVBAR 2*/
+
+      .coin {
+        width: 90rem;
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* NAVBAR 2*/
+
+      #navbar {
+        display: flex;
+        height: 3.2rem;
+        padding: 10px;
+        justify-content: space-around;
+        display: flex;
+        text-align: center;
+        margin-top: 11px;
+        margin-bottom: 12px;
+      }
+
+      #navbar .nav-links {
+        gap: 5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      #navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #navbar li {
+        margin: 0;
+      }
+
+      #navbar a {
+        font-size: 20px;
+        color: gainsboro;
+        text-decoration: none;
+        transition: 0.2s ease-in;
+      }
+
+      #navbar a:hover {
+        background-color: #3e0000;
+        border-radius: 25px;
+        padding: 10px 25px;
+        transition: 0.3s ease-in-out;
+      }
+
+      section {
+        margin-top: 10rem;
+      }
+
+      #navbar .logo img {
+        width: auto;
+        height: 25px;
+      }
+      
+/* From Uiverse.io by vinodjangid07 */ 
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(63, 0, 0);
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    font-size: 2em;
+    color: gainsboro;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: -10%;
+    width: 0%;
+    opacity: 0;
+    color: #3f2a13;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .Btn:hover {
+    border: solid #480000 2px;
+    background-color: #ffbc41;
+    width: 150px;
+    border-radius: 25px;
+    transition-duration: .3s;   
+  }
+  
+  .Btn:hover .sign {
+    color: #3f2a13;
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 20px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+
+  .button{
+    margin: 1rem 0;
+    text-decoration: none;
+    background-color: rgb(205, 205, 205);
+    width: 11rem;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .button:hover{
+    background-color: rgb(248, 213, 58);
+  }
+
+  .button a{
+    color: rgb(14, 14, 14);
+    text-decoration: none;
+  }
+
+  .profile-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 60px;
+  }
+
+  .profile-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+
+  .edit-btn {
+    background-color: #d22b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 40px;
+  }
+
+  .edit-btn:hover {
+    background-color:#3E0000;
+  }
+
+  .coin {
+    background: rgb(89, 0, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+  .coin-info {
+    color: white;
+    font-size: 18px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal input[type="text"],
+  .modal input[type="password"],
+  .modal input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .modal button {
+    background-color: #d22b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal button:hover {
+    background-color: #3E0000;
+  }
+
+  .toggle-password {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+    </style>
+  </head>
+  <body>
+
+    <div class="navbar-color">
+      <nav id="navbar">
+        <ul class="nav-links">
+          <li><a href="{{url_for('dashboard')}}">Home</a></li>
+          <li><a href="{{url_for('profile')}}">Profile</a></li>
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+
+
+    <div class="profile-container">
+      <div class="profile-info">
+        <span>Name</span>
+        <div>
+          <span> {{ user.username }}</span>
+        </div>
+      </div>
+
+      <div class="profile-info">
+        <span>Password</span>
+        <span>{{ user.password }}</span>
+      </div>
+
+      <div class="profile-info">
+        <span>Birthdate</span>
+        <span>{{ user.birthdate }}</span>
+      </div>
+
+      <div class="profile-info">
+        <span>Money</span>
+        <span>{{ user.money }}</span>
+      </div>
+      <div class="profile-info">
+        <span>Total Winnings</span>
+        <span>{{ user.total_winnings }} 🏆</span>
+      </div>
+      <button class="edit-btn" onclick="openEditModal()">Edit Profile</button>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{ user.username }}" required>
+                
+                <label for="password">Password</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" value="{{ user.password }}" required>
+                    <span class="toggle-password">👁️</span>
+                </div>
+                
+                <label for="birthdate">Birthdate</label>
+                <input type="date" id="birthdate" name="birthdate" value="{{ user.birthdate }}" required>
+                
+                <button type="submit">Save Changes</button>
+                <div id="error-message" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/FRONTENDS/dashboard1/js/jQuery.js"></script>
+
+    <script>
+      function openModal() {
+        // Placeholder for top-up modal functionality
+        alert("Top-up modal would open here");
+      }
+
+      function openSimpleModal() {
+        // Placeholder for leaderboard modal functionality
+        alert("Leaderboard modal would open here");
+      }
+
+      // Edit Profile Modal
+      function openEditModal() {
+        document.getElementById('editProfileModal').style.display = 'block';
+      }
+
+      function closeEditModal() {
+        document.getElementById('editProfileModal').style.display = 'none';
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+
+        togglePassword.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.textContent = "🙈";
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.textContent = "👁️";
+            }
+        });
+
+        document.getElementById('editProfileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const birthdate = document.getElementById('birthdate').value;
+
+            // Clear previous error message
+            errorMessage.textContent = '';
+
+            fetch('/update_profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password, birthdate })
+            })
+            .then(response => response.json().then(data => ({ status: response.status, body: data })))
+            .then(({ status, body }) => {
+                if (status === 200 && body.success) {
+                    alert('Profile updated successfully!');
+                    closeEditModal();
+                    location.reload();
+                } else {
+                    errorMessage.textContent = body.message || 'Failed to update profile.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'An unexpected error occurred.';
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.login{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0%;
+  height: 100vh;
+  width: 100vh-content;
+  background-color: #3E0000;
+  }
+  .login_button{
+    padding: 10px;
+    width: 25%;
+    height: 10%;
+    border-radius: 10px;
+    background:  #BA0000;
+    margin-top: 20px;
+  }
+  .text{
+    width: 30%;
+    border-radius: 10px;
+    background:  #fff;
+  }
+  .form_login{
+    margin-top:5%;
+    height: 500px;
+    border-radius:20px;
+    width: 50%;
+    background-color: #0D0D0C;
+  }
+  .label_login{
+    color: #fff;
+    margin-right:80px ;
+  }
+  .link_signup{
+    color: white;
+    padding: 10px;
+  }
+  .login_title{
+    color: #fff;
+  }
+  .popup{
+    position: absolute;
+    top: 39%;
+    border-radius:10px ;
+    margin-left:400px ;
+    width: 15%;
+  }
+  .input_container{
+    margin-top: 10%;
+    margin-left:300px ;
+  }
+  .images{
+    position:absolute;
+    top: 72%;
+    right: 52%;
+    height: 120px;
+    width: auto;
+  }
+  .images1{
+    position:absolute;
+    top: 29.5%;
+    right: 53%;
+    width: auto;
+    height: 300px;
+  }
+  .images2{
+    opacity:50%;
+    position:absolute;
+    position:absolute;
+    height: 500px;
+    width: 340px;
+    right: 52%;
+    border-radius: 16px;
+  }
+  .images3{
+  opacity:50%;
+    position:absolute;
+    position:absolute;
+    height: 500px;
+    width: 340px;
+    right: 52%;
+    border-radius: 10px;
+  }

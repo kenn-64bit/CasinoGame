@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/FRONTENDS/CSS/styles.css">
+    <link rel="stylesheet" href="/FRONTENDS/CSS/login.css">
+</head>
+<body>
+    <div class="container login">
+           
+            <form class="form_login"method="POST">
+                <div class="img_container">
+                    <img src="FRONTENDS\Website\WebsiteAssets\backdrop.png" class="images2">
+                    <img src="FRONTENDS\Website\\WebsiteAssets\falling-coins.png" class="images3">
+                    <img src="FRONTENDS\Website\\WebsiteAssets\fortunefrenzy.png" class="images">
+                    <img src="FRONTENDS\Website\WebsiteAssets\guy-coin.png" class="images1">
+                   
+                 </div>
+                <h1 class="login_title input_container">Log In</h1> 
+                <!-- Display error messages -->
+                {% for category, message in get_flashed_messages(with_categories=true) %}
+                <div class="popup alert {{ category }}">{{ message }}</div>
+                {% endfor %} <!-- Display error messages -->
+            <div class="input_container">
+               
+                <div class="form-group">
+                    <input class="text" placeholder="Username" type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <input class="text" placeholder="Password" type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login_button">Log In</button>
+                <br>
+                <p class="login_title ">Don't have an account?<a href="{{ url_for('signup') }}" class="link_signup"> Sign Up</a></p>
+            </div>
+        </form>
+       
+    </div>
+</body>
+</html>

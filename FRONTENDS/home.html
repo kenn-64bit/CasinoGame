@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/FRONTENDS/CSS/home.css" />
+  </head>
+  <style>
+    @font-face {font-family: robot; src: url(/FRONTENDS/roboto/Roboto-Regular.ttf);
+}
+@font-face {font-family: clv; src:url(/FRONTENDS/roboto/Coolvetica\ Rg.otf);}
+@font-face {font-family: dly; src:url(/FRONTENDS/roboto/Daily\ Bubble.ttf);}
+  </style>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><h1 style="font-family: robot;">Fortune Frenzy</h1></div>
+        <section class="actions">
+          <a href="/login" class="btn">Log In</a>
+          <a href="/signup" class="btn" id="2">Sign Up</a>
+        </section>
+      </div>
+    </div>
+    <section id="hero-page">
+      <div class="overlay-container">
+        <div class="text-layer">
+          <img
+            class="logo"
+            src="FRONTENDS\Website\WebsiteAssets\fortunefrenzy.png"
+          />
+          <p class="qoute">"Where luck, Meets you way"</p>
+        </div>
+        <img
+          draggable="false"
+          src="FRONTENDS\Website\WebsiteAssets\person.png"
+          alt=""
+          class="person-image"
+        />
+      </div>
+    </section>
+    <div class="about-us-bg">
+      <section id="about-us">
+        <div class="header-content">
+          <header class="header">
+            <div class="header-logo">
+              <h3>Fortune Frenzy</h3>
+            </div>
+            <p id="aboutP">
+              Step into the world of Fortune Frenzy and explore fourelectrifying
+              games:
+            </p>
+
+            <p id="aboutP">🎰 Spin the Slot Machine for massive wins!</p>
+            <p id="aboutP">🎲 Bet your instincts in the Color Game!</p>
+            <p id="aboutP">🃏 Show off your strategy in Blackjack!</p>
+            <p id="aboutP">
+              🎡 And feel the rush with the spinning Roulette wheel!
+            </p>
+            <p id="aboutP">
+              So, what are you waiting for? Your next big win is just a spin,
+              bet, or deal away.
+            </p>
+          </header>
+        </div>
+      </section>
+    </div>
+
+    <div id="games">
+      <h3>OUR GAMES</h3>
+      <section class="slider-container">
+        <div class="slider-images">
+          <div class="slider-img">
+            <img
+              src="FRONTENDS\blackjack\cards\jack_of_diamonds.png"
+              alt="BlackJack"
+            />
+            <h1 class="text-adjust">BlackJack</h1>
+            <div class="details">
+              <h2>BlackJack</h2>
+              <p>Beat the dealer's hand!</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="FRONTENDS\Website\Images\roulette.png" alt="Roulette" />
+            <h1 class="text-adjust">Roulette</h1>
+            <div class="details">
+              <h2>Roulette</h2>
+              <p>Spin to win big!</p>
+            </div>
+          </div>
+          <div class="slider-img active">
+            <img src="FRONTENDS\Website\images\4.png" alt="Slot Machine" />
+            <h1>Slot</h1>
+            <div class="details">
+              <h2>Slot Machine</h2>
+              <p>Match symbols for prizes</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img
+              src="FRONTENDS\Website\Images\colorGame.png"
+              alt="Color Game"
+            />
+            <h1 class="text-adjust_">Color</h1>
+            <div class="details">
+              <h2>Color Game</h2>
+              <p>Guess the color correctly!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="signup-background">
+      <section id="signup">
+        <div class="signup-container">
+          <div>
+            <p id="signupP">
+              "Attention, thrill-seekers and fortune-hunters! Are you ready to
+              dive into the most exciting casino gaming experience of your
+              life?"
+            </p>
+            <p id="signupP">
+              Sign up today and get 1,000 FREE coins to kickstart your
+              adventure! That’s right—1,000 coins just for joining the fun! Want
+              even more action? No problem! Simply top up your balance and keep
+              the good times rolling!
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section id="footer">
+      <div class="footer-info">
+        <div class="footer-width about">
+          <h2>About</h2>
+          <p>
+            At Fortune Frenzy, we believe in providing a thrilling, no-pressure
+            gaming experience that’s all about having fun. Whether you're
+            spinning the slots, testing your luck with the color game, playing a
+            hand of blackjack, or feeling the rush with the roulette wheel, our
+            goal is to create a lighthearted environment where everyone can
+            enjoy themselves.
+          </p>
+        </div>
+        <div class="footer-width-Contact">
+          <h2>Contact</h2>
+          <ul>
+            <li>
+              <span></span>
+              <p>MONKEY BUSINESS</p>
+            </li>
+            <li>
+              <span></span>
+              <a href="#">EMAIL: MonkeyBusiness@gmail.com</a>
+            </li>
+            <li>
+              <span></span>
+              <a href="#">09996487753</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script src="FRONTENDS\js\jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>

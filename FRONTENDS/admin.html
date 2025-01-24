@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/FRONTENDS/CSS/admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div><h2>Fortune Frenzy</h2></div>
+        <div>
+          <input type="text" id="searchBar" placeholder="Search..." />
+          <button onclick="searchTable()">Search</button>
+        </div>
+      </div>
+<div class="layout">
+  
+        <div class="sidebar">
+          <h2 class="navTitle">Admin - Page</h2>
+          <a href="{{ url_for('userList') }}">User List</a>
+          <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+</div>
+
+    <script src="/FRONTENDS/JS/admin.js"></script>
+  </body>
+</html>
+  </body>
+</html>

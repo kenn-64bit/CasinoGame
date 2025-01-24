@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot Machine</title>
+    <link rel="stylesheet" href="/FRONTENDS/Slot_Machine/style.css">
+    <script src="/FRONTENDS/Slot_Machine/script.js" defer></script>
+</head>
+ <!-- <body onload="fetchBalance()"> -->
+<input id="back-button" type="button" onclick="window.location.href='/dashboard'" class="back-button" value="Back to Dashboard"/>
+<div id="container">
+    <div class="window-border">
+        <div class="window">
+            <div class="outer-spacer"></div>
+            <div class="outer-col">
+                <div class="col"></div>
+            </div>
+            <div class="outer-spacer"></div>
+            <div class="outer-col">
+                <div class="col"></div>
+            </div>
+            <div class="outer-spacer"></div>
+            <div class="outer-col">
+                <div class="col"></div>
+            </div>
+            <div class="outer-spacer"></div>
+            <div class="outer-col">
+                <div class="col"></div>
+            </div>
+            <div class="outer-spacer"></div>
+            <div class="outer-col">
+                <div class="col"></div>
+            </div>
+            <div class="outer-spacer"></div>
+        </div>
+    </div>
+        <div class="interface">
+        
+        <div class="amnt"><p id="balance" ><span style="font-family: sd;font-weight: bold;">M</span>: $<span id="balance-amount">{{ user.money }}</span></p> </div>
+        <button id="regularBtn" onclick="spin(this)"><span class="button_top">Spin <span style="font-family: sd; color: rgb(102, 168, 16); font-size: 16px;">M</span>50</span></button>
+        <button id="doubleBtn" onclick="spin(this)"><span class="button_double"   style="--button_color: #eeff00;--button_outline_color: #000000;" >Spin <span style="font-family: sd; color: rgb(102, 168, 16); font-size: 16px;">M</span>100</span></button>
+        </div>
+        
+</div>
+
+<div id="sidebar">
+    <h3>Winning combinations</h3>
+    <ul>
+        <li>2 Matching Icons</li>
+        <li>3 Matching Icons</li>
+        <li>Matching Diagonal Icon</li>
+        <!-- Add more winning conditions here -->
+    </ul>
+    <div id="messages"></div>
+</div>
+
+<!-- Add audio elements for sound effects -->
+<audio id="rolling-sound" src="/FRONTENDS/Slot_Machine/sounds/rolling.mp3"></audio>
+<audio id="winning-sound" src="/FRONTENDS/Slot_Machine/sounds/winning.mp3"></audio>
+
+</body>
+</html>

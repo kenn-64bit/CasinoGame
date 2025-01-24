@@ -1,0 +1,431 @@
+@font-face {
+  font-family: robot;
+  src: url(/FRONTENDS/roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: clv;
+  src: url(/FRONTENDS/roboto/Coolvetica\ Rg.otf);
+}
+@font-face {
+  font-family: dly;
+  src: url(/FRONTENDS/roboto/Daily\ Bubble.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "robot", serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar-color {
+  background: rgba(124, 0, 0, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.navbar-color-2 {
+  background: rgb(89, 0, 0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+/* NAVBAR 2*/
+
+.coin {
+  width: 90rem;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* NAVBAR 2*/
+
+#navbar {
+  display: flex;
+  height: 3.2rem;
+  padding: 10px;
+  justify-content: space-around;
+  display: flex;
+}
+
+#navbar .nav-links {
+  gap: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+#navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#navbar li {
+  margin: 0;
+}
+
+#navbar a {
+  font-size: 20px;
+  color: gainsboro;
+  text-decoration: none;
+  transition: 0.2s ease-in;
+}
+
+#navbar a:hover {
+  background-color: #3e0000;
+  border-radius: 25px;
+  padding: 10px 25px;
+  transition: 0.3s ease-in-out;
+}
+
+section {
+  margin-top: 10rem;
+}
+
+#navbar .logo img {
+  width: auto;
+  height: 25px;
+}
+
+body {
+  background-color: #690000;
+  background-image: linear-gradient(
+      30deg,
+      #7c0000 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #7c0000 87.5%,
+      #7c0000
+    ),
+    linear-gradient(
+      150deg,
+      #7c0000 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #7c0000 87.5%,
+      #7c0000
+    ),
+    linear-gradient(
+      30deg,
+      #7c0000 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #7c0000 87.5%,
+      #7c0000
+    ),
+    linear-gradient(
+      150deg,
+      #7c0000 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #7c0000 87.5%,
+      #7c0000
+    ),
+    linear-gradient(
+      60deg,
+      #7c000077 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #7c000077 75%,
+      #7c000077
+    ),
+    linear-gradient(
+      60deg,
+      #7c000077 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #7c000077 75%,
+      #7c000077
+    );
+  background-size: 14px 25px;
+  background-position: 0 0, 0 0, 7px 12px, 7px 12px, 0 0, 7px 12px;
+}
+
+@keyframes animated {
+  0% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 10% 10%;
+  }
+}
+
+#games h3 {
+  user-select: none;
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+  margin-top: 3rem;
+  z-index: 2;
+  color: gainsboro;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(63, 0, 0);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  font-size: 2em;
+  color: gainsboro;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* text */
+.text {
+  position: absolute;
+  right: -10%;
+  width: 0%;
+  opacity: 0;
+  color: #3f2a13;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition-duration: 0.3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  border: solid #480000 2px;
+  background-color: #ffbc41;
+  width: 150px;
+  border-radius: 25px;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .sign {
+  color: #3f2a13;
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 20px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
+.button {
+  margin: 1rem 0;
+  text-decoration: none;
+  background-color: rgb(205, 205, 205);
+  width: 11rem;
+  border-radius: 15px;
+  padding: 5px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: rgb(248, 213, 58);
+}
+
+.button a {
+  color: rgb(14, 14, 14);
+  text-decoration: none;
+}
+
+/* FOR TOP UP MODALS */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.card {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.input {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  z-index: 10;
+  box-shadow: 1px 1px 10px #aaaaaa, -1px -1px 10px #ffffff;
+}
+
+.input + .check::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d0d0d0;
+  border-radius: 50%;
+  background-color: #e8e8e8;
+}
+
+.input:checked + .check::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+}
+
+.input[value="standard"]:checked + .check::after {
+  background-color: rgba(255, 165, 0, 0.7);
+}
+
+.input[value="premium"]:checked + .check::after {
+  background-color: rgba(0, 128, 0, 0.7);
+}
+
+.input[value="basic"]:checked {
+  border: 1.5px solid rgba(255, 0, 0, 0.7);
+}
+
+.input[value="standard"]:checked {
+  border: 1.5px solid rgba(255, 165, 0, 0.7);
+}
+
+.input[value="premium"]:checked {
+  border: 1.5px solid rgba(0, 128, 0, 0.7);
+}
+
+.label {
+  color: #323232;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.label .title {
+  margin: 15px 0 0 15px;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.label .price {
+  margin: 20px 0 0 15px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.label .span {
+  color: rgb(102, 168, 16);
+  font-size: 20px;
+}
+
+/* FOR TOTAL EARNINGS*/
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}

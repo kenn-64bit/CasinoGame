@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Frenzy</title>
+    <link rel="stylesheet" href="/FRONTENDS/Website/website-css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" sizes="180x180" href="goldbar.ico">
+</head>
+<body>
+    <div class="navbar-color">  
+        <nav id="navbar">
+            <ul class="nav-links">
+                <li><a href="#hero-page">Home</a></li>
+                <li><a href="#about-us">About Us</a></lis>
+                <li>
+                    <img class="navbar-logo" src="/FRONTENDS/Website/WebsiteAssets/spadelogo.png">
+                </li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('signup') }}">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="hero-page">
+        <div class="overlay-container">
+            <div class="text-layer">
+                <img class="logo" src="/FRONTENDS/Website/WebsiteAssets/fortunefrenzy.png">
+                <p class="hero-text-container">"Where luck, Meets you way"</p>
+                <div>
+                    <button class="button-container" >
+                        <span class="transition"></span>
+                        <span class="gradient"></span>
+                        <span class="label" ><a href="{{ url_for('login') }}" style="color: white;text-decoration: none;">Play Now</a> </span>
+                      </button>
+                </div>
+            </div>
+            <img draggable="false" src="/FRONTENDS/Website/WebsiteAssets/person.png" alt="" class="person-image">
+        </div>
+        <div class="scrollcontainer">
+            <div class="scroll">
+                <div class="LeftToRight">
+                  <p>PLAY NOW!  PLAY NOW!  PLAY NOW!  PLAY NOW!</p>
+                  <p>PLAY NOW!  PLAY NOW!  PLAY NOW!  PLAY NOW!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="about-us-bg">
+        <section id="about-us">
+            <block>
+                <div class="content-box">
+                    <div class="info-box">
+                        <h1>About Our Casino</h1>
+                        <div class="logo-container">
+                            <i class="fa-regular fa-circle-user"></i>
+                        </div>
+                        <p>"Experience the thrill of gaming like never before! Our casino brings you a luxurious, secure, and entertaining environment where excitement knows no bounds."</p>
+                    </div>
+                    <div class="info-box">
+                        <h1>What We Offer</h1>
+                        <div class="logo-container">
+                            <i class="fa-regular fa-handshake"></i>
+                        </div>
+                        <p>"From classic table games to the latest slot machines, we cater to every type of player. Enjoy live dealers, top-notch facilities, and an unparalleled gaming experience."</p>
+                    </div>
+                    <div class="info-box">
+                        <h1>Rewards</h1>
+                        <div class="logo-container">
+                            <i class="fa-regular fa-gem"></i>
+                        </div>
+                        <p>"Earn exclusive rewards as you play! Unlock loyalty perks, cashback offers, free spins, and VIP privileges designed to make your wins even more rewarding."</p>
+                    </div>
+                </div>
+            </block>
+        </section>
+    </div>
+
+    <div id="games">
+        <block>
+            <h3> OUR GAMES</h3>
+        <section class="slider-container">
+            <div class="slider-images">
+                <div class="slider-img">
+                    <img draggable="false" src="/FRONTENDS/Website/Images/1.png" alt="1" />
+                    <h1 class="text-adjust">BlackJack</h1>
+                    <div class="details">
+                    <h2>BlackJack</h2>
+                    <p>Beat the dealer's hand!</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <img draggable="false" src="/FRONTENDS/Website/Images/3.png" alt="3" />
+                    <h1 class="text-adjust">Roulette</h1>
+                    <div class="details">
+                    <h2>Roulette</h2>
+                    <p>Spin to win big!</p>
+                    </div>
+                </div>
+                <div class="slider-img active">
+                    <img draggable="false" src="/FRONTENDS/Website/Images/4.png" alt="4" />
+                    <h1>Slot</h1>
+                    <div class="details">
+                    <h2>Slot Machine</h2>
+                    <p>Match symbols for prizes</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <img draggable="false"src="/FRONTENDS/Website/Images/5.png" alt="5" />
+                    <h1 class="text-adjust_">Color</h1>
+                    <div class="details">
+                    <h2>Color Game</h2>
+                    <p>Guess the color correctly!</p>
+                    </div>
+                </div>
+            </div>  
+        </section>
+        </block>
+    </div>
+
+    <section id="quote">
+       <block>
+            <div class="quote-container">
+                <p>"Only those who will risk going too far can possibly find out how far one can go."</p>
+            </div>
+       </block>
+    </section>
+
+    <section id="footer">   
+        <div class="footer-info">
+            <div class="footer-width about">
+                <h2>About</h2>
+                <p>We’re all about bringing you the fun and excitement of casino games without the worry of losing your money—just pure entertainment, stress-free!</p>
+            </div>
+            <img class="footer-logo" src="/FRONTENDS/Website/WebsiteAssets/fortunefrenzywhite.png">
+        </div>
+    </section>
+
+    <script src="/FRONTENDS/Website/js/jQuery.js"></script>
+    <script src="/FRONTENDS/Website/js/landingpage.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+    <script>
+        document.addEventListener("mousedown", (event) => {
+        if (event.button === 1) {
+        event.preventDefault();
+        }
+        });
+    </script>
+</body>
+</html>

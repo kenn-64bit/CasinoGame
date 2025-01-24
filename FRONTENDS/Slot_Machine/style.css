@@ -1,0 +1,340 @@
+@font-face {font-family: sd; src: url(/FRONTENDS/Slot_Machine/fonts/eto.ttf);
+}
+@font-face {font-family: clv; src:url(/FRONTENDS/Slot_Machine/fonts/CaviarDreams\.ttf);}
+  
+* {
+ box-sizing: border-box;
+ font-family: clv
+}
+
+input[type="button"] {
+ cursor: pointer;
+ 
+}
+
+:root {
+ --item-height: 100px;
+}
+
+
+body {
+    background: rgb(62,0,0);
+    background: radial-gradient(circle, rgba(62,0,0,1) 43%, rgba(13,13,12,1) 95%);
+ 
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+/*
+* Style the orange box
+*/
+
+.start-button {
+ display: block;
+ margin: 1em auto;
+}
+
+.back-button {
+position: absolute;
+top: 20px;
+left: 20px;
+padding: 15px 10px;
+background-color: #ff4d4d;
+border: none ;
+color: white;
+font-size: small;
+font-weight: normal;
+border-radius: 10px;
+}
+
+#container {
+ background-color: #ba0000;
+ padding: 50px;
+box-shadow: inset -16px -16px 32px #8f0000,
+            inset 16px 16px 32px #e50000;
+ border-radius: 40px;
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ margin-left: -320px;
+ margin-top: -200px;
+}
+
+#sidebar {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#sidebar h3 {
+    margin-top: 0;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+}
+
+
+.window { /* this do is */
+ position: relative;
+ overflow: hidden;
+ height: calc(3 * var(--item-height));
+}
+
+.window::before {
+ content: "";
+ clear: both;
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 6px;
+ background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+}
+
+.window::after {
+ content: "";
+ clear: both;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 6px;
+ background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+}
+
+.window-border {
+ padding: 7px;
+ background-image: linear-gradient(to bottom, #ffff99, #ffeb3b, #ffd700);
+ box-shadow: 0 6px 4px -5px #cc0000 inset;
+}
+
+/*
+* Reels and icon styling
+*/
+
+.icon {
+ width: 80px;
+ height: var(--item-height);
+ display: block;
+ position: relative;
+
+ /*animation: wiggle 0.1s linear infinite;*/
+}
+
+.outer-col {
+ overflow-y: hidden;
+ width: 100px;
+ float: left;
+ background-color: #eee;
+ background-image: linear-gradient(#001326, #005299, #001326);
+ height: calc(var(--item-height) * 3);
+}
+
+.outer-spacer {
+ width: 5px;
+ height: 100%;
+ float: left;
+ border-right: 2px solid #f7ce6c38;
+background-image: linear-gradient(to bottom, #ffff99, #ebe837);
+}
+
+.col {
+ padding: 0 10px;
+ will-change: true;
+ transform: translateY(calc(-100% + var(--item-height) * 3));
+}
+
+.col img {
+ width: 100%;
+ height: auto;
+ margin: 10px 0;
+ position: relative;
+ z-index: 3;
+}
+
+/* shadow effect behind the items */
+.col .icon::after {
+ content: "";
+ clear: both;
+ display: block;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 1px;
+ height: 1px;
+ background-color: white;
+ box-shadow: 0 0 35px 30px rgba(12, 0, 14, 0.69);
+ z-index: 2;
+ border-radius: 100%;
+}
+
+/*
+* Spinning animation
+*/
+
+
+#container.spinning .outer-col:nth-of-type(2) .col {
+
+ animation-delay: 0.01s;
+}
+
+#container.spinning .outer-col:nth-of-type(3) .col {
+ animation-delay: 0.02s;
+}
+
+#container.spinning .outer-col:nth-of-type(4) .col {
+
+ animation-delay: 0.03s;
+ 
+}
+
+#container.spinning .col {
+   
+ animation-name: scroll;
+ animation-iteration-count:1;
+ animation-timing-function: cubic-bezier(.65, .97, .72, 1);
+}
+
+@keyframes scroll {
+ to {
+     transform: translateY(0);
+ }
+ 0% {filter: blur(0);}
+ 10% {filter: blur(5px);}
+ 30% {filter: blur(10px);}
+ 60% {filter: blur(6px);}
+ 80% {filter: blur(2px);}
+ 100% {filter: blur(0);}
+ 
+}
+
+
+/*@keyframes wiggle {
+ 0% {
+     transform: rotate(7deg);
+ }
+ 50% {
+     transform: rotate(-7deg);
+ }
+ 100% {
+     transform: rotate(7deg);
+ }
+}*/
+
+.highlight {
+    border: 3px solid yellow;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8);
+    animation: highlight-animation 5s ease-in-out infinite;
+}
+
+@keyframes highlight-animation {
+    0%, 100% {
+        box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 25px 10px rgba(255, 255, 0, 1);
+    }
+}
+
+
+/* Button styling */
+button {
+    flex-grow: 3;
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #ffffff;
+    --button_outline_color: #4e0000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+  }
+  
+  .button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+  .button_double {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+  
+  button:hover .button_top , button:hover .button_double {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  button:active .button_top , button:active .button_double {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+  }
+
+  .button-disabled {
+    background: #cccccc; /* Light grey background */
+    color: #666666; /* Dark grey text */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+    opacity: 0.6; /* Reduce opacity */
+}
+
+.button-disabled .button_top , .button-disabled .button_double {
+    background: #e0e0e0; /* Slightly darker grey for the top part */
+    color: #999999; /* Even darker grey for the text */
+    border-color: #999999; /* Match the border color */
+}
+
+.interface{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+ /*background-color: white; debugging only*/ 
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3%;
+
+}
+.amnt{
+    color: white;
+    margin-right: 13%;
+    font-size: 16px;
+    padding: 0px 25px;
+    border-radius: 10px;
+    background-color: rgb(58, 168, 58);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
