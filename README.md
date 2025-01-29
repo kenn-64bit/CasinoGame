@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Group 5 please dont leak 
  
 ano paba kulang
@@ -51,9 +50,7 @@ Games(Color Game) - Mavs
 
 PROFILE - Jon 
 Admin - Brent
-=======
 # Group 5 please dont leak 
->>>>>>> main
 
 ```python
 print("I Like Pizzas!")
